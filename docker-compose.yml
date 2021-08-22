@@ -1,0 +1,17 @@
+version: "3"
+services:
+  shuffledns:
+    image: neoandersonxxx/shuffledns
+    command: -r /resolvers.txt -w /all.txt --silent -o /tmp/shuffledns-output.txt -d ${TARGET}
+    volumes:
+      - ./:/tmp/
+  httpx:
+    image: neoandersonxxx/httpx
+    command: -l /tmp/shuffledns-output.txt -o /tmp/httpx-output.txt --silent
+    volumes:
+      - ./:/tmp/
+  nuclei:
+    image: neoandersonxxx/nuclei
+    command: -l /tmp/httpx-output.txt -silent -t nuclei-templates/ -severity info,low,medium,high,critical -tags cve,panel -o /tmp/nuclei-output.txt
+    volumes:
+      - ./:/tmp/
