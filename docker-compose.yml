@@ -15,6 +15,10 @@ services:
     command: -l /tmp/subdomain-output.txt -o /tmp/httpx-output.txt --silent
     volumes:
       - ./:/tmp/
+  nuclei:
+    image:neoandersonxxx/nuclei
+    volumes:
+      - ./:/tmp/
   nuclei-info:
     image: neoandersonxxx/nuclei
     command: -l /tmp/httpx-output.txt -silent -t nuclei-templates/ -severity info -o /tmp/nuclei[info]-output.txt
