@@ -1,7 +1,7 @@
 version: "3"
 services:
   shuffledns:
-    image: neoandersonxxx/shuffledns
+    image: myr3p0/shuffledns
     command: -r /resolvers.txt -w /all.txt --silent -o /tmp/shuffledns-output.txt -d ${TARGET}
     volumes:
       - ./:/tmp/
@@ -11,41 +11,41 @@ services:
     volumes:
       - ./:/tmp/
   httpx:
-    image: neoandersonxxx/httpx
+    image: myr3p0/httpx
     command: -l /tmp/subdomain-output.txt -o /tmp/httpx-output.txt --silent
     volumes:
       - ./:/tmp/
   nuclei:
-    image: neoandersonxxx/nuclei
+    image: myr3p0/nuclei
     volumes:
       - ./:/tmp/
   nuclei-info:
-    image: neoandersonxxx/nuclei
+    image: myr3p0/nuclei
     command: -l /tmp/httpx-output.txt -silent -t nuclei-templates/ -severity info -o /tmp/nuclei[info]-output.txt
     volumes:
       - ./:/tmp/
   nuclei-low:
-    image: neoandersonxxx/nuclei
+    image: myr3p0/nuclei
     command: -l /tmp/httpx-output.txt -silent -t nuclei-templates/ -severity low -o /tmp/nuclei[low]-output.txt
     volumes:
       - ./:/tmp/
   nuclei-medium:
-    image: neoandersonxxx/nuclei
+    image: myr3p0/nuclei
     command: -l /tmp/httpx-output.txt -silent -t nuclei-templates/ -severity medium -o /tmp/nuclei[medium]-output.txt
     volumes:
       - ./:/tmp/
   nuclei-high:
-    image: neoandersonxxx/nuclei
+    image: myr3p0/nuclei
     command: -l /tmp/httpx-output.txt -silent -t nuclei-templates/ -severity high -o /tmp/nuclei[high]-output.txt
     volumes:
       - ./:/tmp/
   nuclei-critical:
-    image: neoandersonxxx/nuclei
+    image: myr3p0/nuclei
     command: -l /tmp/httpx-output.txt -silent -t nuclei-templates/ -severity critical -o /tmp/nuclei[critical]-output.txt
     volumes:
       - ./:/tmp/
   nuclei-cve:
-    image: neoandersonxxx/nuclei
+    image: myr3p0/nuclei
     command: -l /tmp/httpx-output.txt -silent -t nuclei-templates/ -tags cve -o /tmp/nuclei[cve]-output.txt
     volumes:
       - ./:/tmp/
