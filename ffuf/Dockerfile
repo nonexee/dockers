@@ -11,11 +11,7 @@ RUN apk --no-cache add git \
     && apk del git
 
 FROM alpine:latest
-COPY start.sh /opt/ffuf/
 COPY --from=build /go/bin/ffuf /opt/ffuf/ffuf
 COPY --from=build /opt/ffuf/raft.txt /opt/ffuf/raft.txt
 COPY --from=build /opt/ffuf/fuzz.txt /opt/ffuf/fuzz.txt
-RUN apk add --no-cache bash \
-&& chmod +x /opt/ffuf/start.sh
-WORKDIR /opt/ffuf/
-ENTRYPOINT ["/opt/ffuf/start.sh"]
+ENTRYPOINT ["/opt/ffuf/ffuf"]
