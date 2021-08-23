@@ -10,8 +10,33 @@ services:
     command: -l /tmp/shuffledns-output.txt -o /tmp/httpx-output.txt --silent
     volumes:
       - ./:/tmp/
-  nuclei:
+  nuclei-info:
     image: neoandersonxxx/nuclei
-    command: -l /tmp/httpx-output.txt -silent -t nuclei-templates/ -severity info,low,medium,high,critical -tags cve,panel -o /tmp/nuclei-output.txt
+    command: -l /tmp/httpx-output.txt -silent -t nuclei-templates/ -severity info -o /tmp/nuclei[info]-output.txt
+    volumes:
+      - ./:/tmp/
+  nuclei-low:
+    image: neoandersonxxx/nuclei
+    command: -l /tmp/httpx-output.txt -silent -t nuclei-templates/ -severity low -o /tmp/nuclei[low]-output.txt
+    volumes:
+      - ./:/tmp/
+  nuclei-medium:
+    image: neoandersonxxx/nuclei
+    command: -l /tmp/httpx-output.txt -silent -t nuclei-templates/ -severity medium -o /tmp/nuclei[medium]-output.txt
+    volumes:
+      - ./:/tmp/
+  nuclei-high:
+    image: neoandersonxxx/nuclei
+    command: -l /tmp/httpx-output.txt -silent -t nuclei-templates/ -severity high -o /tmp/nuclei[high]-output.txt
+    volumes:
+      - ./:/tmp/
+  nuclei-critical:
+    image: neoandersonxxx/nuclei
+    command: -l /tmp/httpx-output.txt -silent -t nuclei-templates/ -severity critical -o /tmp/nuclei[critical]-output.txt
+    volumes:
+      - ./:/tmp/
+  nuclei-cve:
+    image: neoandersonxxx/nuclei
+    command: -l /tmp/httpx-output.txt -silent -t nuclei-templates/ -tags cve -o /tmp/nuclei[cve]-output.txt
     volumes:
       - ./:/tmp/
