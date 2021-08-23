@@ -10,6 +10,11 @@ services:
     command: -config /tmp/config.yaml -all -d ${TARGET} -silent -o /tmp/subfinder-output.txt
     volumes:
       - ./:/tmp/
+  amass:
+    image: myr3p0/amass
+    command: enum -passive -d ${TARGET} -o /tmp/amass-output.txt
+    volumes:
+      - ./:/tmp/
   httpx:
     image: myr3p0/httpx
     command: -l /tmp/subdomain-output.txt -o /tmp/httpx-output.txt --silent
