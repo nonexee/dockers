@@ -16,7 +16,7 @@ services:
     volumes:
       - ./:/tmp/
   nuclei:
-    image:neoandersonxxx/nuclei
+    image: neoandersonxxx/nuclei
     volumes:
       - ./:/tmp/
   nuclei-info:
