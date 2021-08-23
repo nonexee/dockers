@@ -12,12 +12,17 @@ services:
       - ./:/tmp/
   amass:
     image: myr3p0/amass
-    command: enum -passive -d ${TARGET} -o /tmp/amass-output.txt -config /tmp/config.ini
+    command: enum -passive -d ${TARGET} -o /tmp/amass-output.txt
+    volumes:
+      - ./:/tmp/
+  shuffledns-resolve:
+    image: myr3p0/shuffledns
+    command: -r /resolvers.txt -list /tmp/subdomain-output.txt -silent -o /tmp/resolved-subdomain-output.txt
     volumes:
       - ./:/tmp/
   httpx:
     image: myr3p0/httpx
-    command: -l /tmp/subdomain-output.txt -o /tmp/httpx-output.txt --silent
+    command: -l /tmp/resolved-subdomain-output.txt -o /tmp/httpx-output.txt --silent
     volumes:
       - ./:/tmp/
   nuclei:
