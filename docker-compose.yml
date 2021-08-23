@@ -25,6 +25,11 @@ services:
     command: -l /tmp/resolved-subdomain-output.txt -o /tmp/httpx-output.txt --silent
     volumes:
       - ./:/tmp/
+  httpx-details:
+    image: myr3p0/httpx
+    command: -l /tmp/resolved-subdomain-output.txt -status-code -title -tech-detect -ports 22,80,443,8443,8080 -http2 -random-agent -follow-redirects
+    volumes:
+      - ./:/tmp/
   nuclei:
     image: myr3p0/nuclei
     volumes:
