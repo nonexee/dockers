@@ -5,13 +5,16 @@ services:
     command: -r /resolvers.txt -w /all.txt --silent -o /tmp/shuffledns-output.txt -d ${TARGET}
     volumes:
       - ./:/tmp/
-  httpx:
-    image: neoandersonxxx/httpx
-    command: -l /tmp/shuffledns-output.txt -o /tmp/httpx-output.txt --silent
+  subfinder:
+    image: myr3p0/subfinder
+    command: -config /tmp/config.yaml -all -d ${TARGET} -silent -o /tmp/subfinder-output.txt
     volumes:
       - ./:/tmp/
-  nuclei:
-    image: neoandersonxxx/nuclei
+  httpx:
+    image: neoandersonxxx/httpx
+    command: -l /tmp/subdomain-output.txt -o /tmp/httpx-output.txt --silent
+    volumes:
+      - ./:/tmp/
   nuclei-info:
     image: neoandersonxxx/nuclei
     command: -l /tmp/httpx-output.txt -silent -t nuclei-templates/ -severity info -o /tmp/nuclei[info]-output.txt

@@ -1,0 +1,110 @@
+resolvers:
+    - 1.1.1.1
+    - 1.0.0.1
+    - 8.8.8.8
+    - 8.8.4.4
+    - 9.9.9.9
+    - 9.9.9.10
+    - 77.88.8.8
+    - 77.88.8.1
+    - 208.67.222.222
+    - 208.67.220.220
+sources:
+    - alienvault
+    - anubis
+    - bufferover
+    - certspotter
+    - censys
+    - chaos
+    - crtsh
+    - dnsdumpster
+    - hackertarget
+    - intelx
+    - passivetotal
+    - robtex
+    - riddler
+    - securitytrails
+    - shodan
+    - spyse
+    - sublist3r
+    - threatcrowd
+    - threatminer
+    - virustotal
+all-sources:
+    - alienvault
+    - anubis
+    - archiveis
+    - binaryedge
+    - bufferover
+    - censys
+    - certspotter
+    - chaos
+    - commoncrawl
+    - crtsh
+    - dnsdumpster
+    - dnsdb
+    - github
+    - hackertarget
+    - intelx
+    - passivetotal
+    - rapiddns
+    - riddler
+    - recon
+    - robtex
+    - securitytrails
+    - shodan
+    - sitedossier
+    - sonarsearch
+    - spyse
+    - sublist3r
+    - threatbook
+    - threatcrowd
+    - threatminer
+    - virustotal
+    - waybackarchive
+    - zoomeye
+recursive:
+    - alienvault
+    - binaryedge
+    - bufferover
+    - certspotter
+    - crtsh
+    - dnsdumpster
+    - hackertarget
+    - passivetotal
+    - securitytrails
+    - sonarsearch
+    - sublist3r
+    - virustotal
+binaryedge:
+    - 0eb25364-5e74-495a-b0e4-346e4d2d3b2f
+censys:
+    - a0880958-fd0e-4109-8534-2a0c49216ddc:QPdmsnZz1CikAK2c1Zyls9LJUvoX1dk5
+certspotter:
+    - 31833_DLohWTTW8OuLhWj0hE9K
+chaos: []
+dnsdb:
+    - daebf87ec0363fd3b5be4a224c24efe0886d57c135d7f6341b1ae09b84b98b83
+github:
+    - 4c7d99f85bfc0f5b6604e40b039b860e38c39e39
+intelx:
+    - 23dffdf5-da3b-430c-86ef-d1282d74efd9
+passivetotal:
+    - russian.selfies@gmail.com:23e95605e8fd6b291dd2a179e08d00250badc2fe94ed4f98752ed2f3d798cc96
+recon:
+    - free-03309101-76ef-49d7-a3c7-f1dab5d485c1
+robtex:
+    - 0tQLiNFylTnmM5t1EEnF
+securitytrails:
+    - vEJ68koLKrrC7FAmhqfeGn35yTA8lfXE
+shodan:
+    - V3q5hZafpSIA7pg5ITPayY3VqoWtKw9e
+spyse:
+    - c34e2d4a-ba3f-4def-b3f1-741bbf98d877
+threatbook: []
+urlscan:
+    - ac2a0b05-2100-4b08-8a86-578d37aefc3d
+virustotal:
+    - 153c611679a517cb7fecd3f7d664ab5bfcee3bdfde23e3c20970cc8708ceb22c
+zoomeye: []
+subfinder-version: 2.4.8
