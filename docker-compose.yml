@@ -15,6 +15,11 @@ services:
     command: enum -passive -d ${TARGET} -o /tmp/amass-output.txt
     volumes:
       - ./:/tmp/
+  puredns:
+    image: myr3p0/puredns
+    command: bruteforce /all.txt --resolvers /resolvers.txt ${TARGET} -q -w /tmp/puredns-output.txt
+    volumes:
+      - ./:/tmp/
   shuffledns-resolve:
     image: myr3p0/shuffledns
     command: -r /resolvers.txt -list /tmp/subdomain-output.txt -silent -o /tmp/resolved-subdomain-output.txt
