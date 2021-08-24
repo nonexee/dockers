@@ -64,8 +64,3 @@ services:
     command: -l /tmp/httpx-output.txt -silent -t nuclei-templates/ -severity critical -o /tmp/nuclei[critical]-output.txt
     volumes:
       - ./:/tmp/
-  nuclei-cve:
-    image: myr3p0/nuclei
-    command: -l /tmp/httpx-output.txt -silent -t nuclei-templates/ -tags cve -o /tmp/nuclei[cve]-output.txt
-    volumes:
-      - ./:/tmp/
