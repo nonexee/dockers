@@ -20,7 +20,7 @@ services:
     command: bruteforce /all.txt --resolvers /resolvers.txt ${TARGET} -q -w /tmp/puredns-output.txt
     volumes:
       - ./:/tmp/
-  puredns:
+  delator:
     image: myr3p0/delator
     command: -d ${TARGET} -s crt
     volumes:
