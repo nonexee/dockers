@@ -55,3 +55,8 @@ services:
     build:
       context: ./subfinder
       dockerfile: Dockerfile
+  wpscan:
+    image: myr3p0/wpscan
+    build:
+      context: ./wpscan
+      dockerfile: Dockerfile
