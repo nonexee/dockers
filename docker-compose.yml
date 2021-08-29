@@ -20,6 +20,11 @@ services:
     command: bruteforce /all.txt --resolvers /resolvers.txt ${TARGET} -q -w /tmp/puredns-output.txt
     volumes:
       - ./:/tmp/
+  findomain:
+    image: myr3p0/findomain
+    command: -q -t ${TARGET} --unique-output /tmp/findomain-output.txt
+    volumes:
+      - ./:/tmp/
   delator:
     image: myr3p0/delator
     command: -d ${TARGET} -s crt
