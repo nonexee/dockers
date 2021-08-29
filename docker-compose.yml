@@ -25,9 +25,9 @@ services:
     command: -d ${TARGET} -s crt
     volumes:
       - ./:/tmp/
-  subjack:
-    image: myr3p0/subjack
-    command: -w /tmp/subdomain-output.txt -t 100 -timeout 30 -ssl -c /tmp/fingerprints.json
+  dnstake:
+    image: myr3p0/dnstake
+    command: -t /tmp/subdomain-output.txt -c 100 -s
     volumes:
       - ./:/tmp/
   shuffledns-resolve:
