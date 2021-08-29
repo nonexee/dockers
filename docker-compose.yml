@@ -27,7 +27,7 @@ services:
       - ./:/tmp/
   subjack:
     image: myr3p0/subjack
-    command: -w /tmp/subdomain-output.txt -t 100 -timeout 30 -ssl -v -c /tmp/fingerprints.json
+    command: -w /tmp/subdomain-output.txt -t 100 -timeout 30 -ssl -c /tmp/fingerprints.json
     volumes:
       - ./:/tmp/
   shuffledns-resolve:
