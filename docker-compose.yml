@@ -12,7 +12,7 @@ services:
       - ./:/tmp/
   amass:
     image: myr3p0/amass
-    command: enum -passive -d ${TARGET} -o /tmp/amass-output.txt
+    command: enum -passive -r 8.8.8.8 -d ${TARGET} -o /tmp/amass-output.txt
     volumes:
       - ./:/tmp/
   puredns:
