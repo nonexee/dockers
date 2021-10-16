@@ -56,7 +56,7 @@ services:
       - ./:/tmp/
   nuclei-info:
     image: myr3p0/nuclei
-    command: -l /tmp/httpx-output.txt -silent -t nuclei-templates/ -severity info -o /tmp/nuclei[info]-output.txt
+    command: -l /tmp/httpx-output.txt -silent -nut -stats -t nuclei-templates/ -severity info -o /tmp/nuclei[info]-output.txt
     volumes:
       - ./:/tmp/
   nuclei-low:
