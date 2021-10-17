@@ -56,26 +56,26 @@ services:
       - ./:/tmp/
   nuclei-info:
     image: myr3p0/nuclei
-    command: -l /tmp/httpx-output.txt -silent -no-interactsh -timeout 2 -rl 500 -bs 100 -c 50 -nut -t nuclei-templates/ -severity info -o /tmp/nuclei[info]-output.txt
+    command: -l /tmp/httpx-output.txt -silent -no-interactsh -timeout 2 -rl 1000 -bs 200 -c 100 -nut -t nuclei-templates/ -severity info -o /tmp/nuclei[info]-output.txt
     volumes:
       - ./:/tmp/
   nuclei-low:
     image: myr3p0/nuclei
-    command: -l /tmp/httpx-output.txt -silent -no-interactsh -timeout 2 -rl 500 -bs 100 -c 50 -nut -t nuclei-templates/ -severity low -o /tmp/nuclei[low]-output.txt
+    command: -l /tmp/httpx-output.txt -silent -no-interactsh -timeout 2 -rl 1000 -bs 200 -c 100 -nut -t nuclei-templates/ -severity low -o /tmp/nuclei[low]-output.txt
     volumes:
       - ./:/tmp/
   nuclei-medium:
     image: myr3p0/nuclei
-    command: -l /tmp/httpx-output.txt -silent -no-interactsh -timeout 2 -rl 500 -bs 100 -c 50 -nut -t nuclei-templates/ -severity medium -o /tmp/nuclei[medium]-output.txt
+    command: -l /tmp/httpx-output.txt -silent -no-interactsh -timeout 2 -rl 1000 -bs 200 -c 100 -nut -t nuclei-templates/ -severity medium -o /tmp/nuclei[medium]-output.txt
     volumes:
       - ./:/tmp/
   nuclei-high:
     image: myr3p0/nuclei
-    command: -l /tmp/httpx-output.txt -silent -no-interactsh -timeout 2 -rl 500 -bs 100 -c 50 -nut -t nuclei-templates/ -severity high -o /tmp/nuclei[high]-output.txt
+    command: -l /tmp/httpx-output.txt -silent -no-interactsh -timeout 2 -rl 1000 -bs 200 -c 100 -nut -t nuclei-templates/ -severity high -o /tmp/nuclei[high]-output.txt
     volumes:
       - ./:/tmp/
   nuclei-critical:
     image: myr3p0/nuclei
-    command: -l /tmp/httpx-output.txt -silent -no-interactsh -timeout 2 -rl 500 -bs 100 -c 50 -nut -t nuclei-templates/ -severity critical -o /tmp/nuclei[critical]-output.txt
+    command: -l /tmp/httpx-output.txt -silent -no-interactsh -timeout 2 -rl 1000 -bs 200 -c 100 -nut -t nuclei-templates/ -severity critical -o /tmp/nuclei[critical]-output.txt
     volumes:
       - ./:/tmp/
