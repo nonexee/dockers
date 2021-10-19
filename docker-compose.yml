@@ -30,7 +30,7 @@ services:
       - ./:/tmp/
   delator:
     image: myr3p0/delator
-    command: -d ${TARGET} -s crt
+    command: -d ${TARGET} -s crt > delator-output.txt
     volumes:
       - ./:/tmp/
   dnstake:
