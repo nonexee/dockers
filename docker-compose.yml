@@ -1,5 +1,8 @@
 version: "3"
 services:
+  nmap:
+    image: myr3p0/nmap
+    command: -sV --script http-security-headers,vulners ${TARGET}
   shuffledns:
     image: myr3p0/shuffledns
     command: -r /resolvers.txt -w /all.txt --silent -o /tmp/shuffledns-output.txt -d ${TARGET}
