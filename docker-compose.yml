@@ -1,8 +1,5 @@
 version: "3"
 services:
-  naabu:
-    image: myr3p0/naabu
-    command: 
   nmap:
     image: myr3p0/nmap
     command: -sC --script http-security-headers,vulners,smb-enum-shares,smb-enum-users,smtp-enum-users,whois-domain,mysql-info,mysql-enum,http-vhosts ${TARGET}
