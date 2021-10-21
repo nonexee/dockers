@@ -5,7 +5,7 @@ services:
     command: 
   nmap:
     image: myr3p0/nmap
-    command: -sV --script http-security-headers,vulners ${TARGET}
+    command: -sC --script http-security-headers,vulners,smb-enum-shares,smb-enum-users,smtp-enum-users,whois-domain,mysql-info,mysql-enum,http-vhosts ${TARGET}
   shuffledns:
     image: myr3p0/shuffledns
     command: -r /resolvers.txt -w /all.txt --silent -o /tmp/shuffledns-output.txt -d ${TARGET}
