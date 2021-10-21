@@ -1,6 +1,6 @@
 version: "3"
 services:
-  nmap:
+  whatweb:
     image: myr3p0/whatweb
     command: ${TARGET} -a 1
   nmap:
