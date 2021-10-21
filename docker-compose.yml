@@ -1,5 +1,8 @@
 version: "3"
 services:
+  naabu:
+    image: myr3p0/naabu
+    command: 
   nmap:
     image: myr3p0/nmap
     command: -sV --script http-security-headers,vulners ${TARGET}
