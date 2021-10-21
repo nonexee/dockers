@@ -1,0 +1,62 @@
+version: "3"
+services:
+  amass:
+    image: myr3p0/amass
+    build:
+      context: ./amass
+      dockerfile: Dockerfile
+  delator:
+    image: myr3p0/delator
+    build:
+      context: ./delator
+      dockerfile: Dockerfile
+  ffuf:
+    image: myr3p0/ffuf
+    build:
+      context: ./ffuf
+      dockerfile: Dockerfile
+  gau:
+    image: myr3p0/gau
+    build:
+      context: ./gau
+      dockerfile: Dockerfile
+  gauplus:
+    image: myr3p0/gauplus
+    build:
+      context: ./gauplus
+      dockerfile: Dockerfile
+  httpx:
+    image: myr3p0/httpx
+    build:
+      context: ./httpx
+      dockerfile: Dockerfile
+  nmap:
+    image: myr3p0/nmap
+    build:
+      context: ./nmap
+      dockerfile: Dockerfile
+  nuclei:
+    image: myr3p0/nuclei
+    build:
+      context: ./nuclei
+      dockerfile: Dockerfile
+  puredns:
+    image: myr3p0/puredns
+    build:
+      context: ./puredns
+      dockerfile: Dockerfile
+  shuffledns:
+    image: myr3p0/shuffledns
+    build:
+      context: ./shuffledns
+      dockerfile: Dockerfile
+  subfinder:
+    image: myr3p0/subfinder
+    build:
+      context: ./subfinder
+      dockerfile: Dockerfile
+  wpscan:
+    image: myr3p0/wpscan
+    build:
+      context: ./wpscan
+      dockerfile: Dockerfile
