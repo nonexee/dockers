@@ -1,8 +1,15 @@
 version: "3"
 services:
+ bingip2host:
+    image: myr3p0/bing-ip2host
+    command: -q -o /tmp/bing-output.txt ${TARGET}
+    volumes:
+      - ./:/tmp/
   whatweb:
     image: myr3p0/whatweb
-    command: ${TARGET} -a 1
+    command: -i /tmp/bing-output.txt -a 1 --no-errors
+    volumes:
+      - ./:/tmp/
   nmap:
     image: myr3p0/nmap
     command: -sV --script http-security-headers,vulners,smb-enum-shares,smb-enum-users,smtp-enum-users,whois-domain,mysql-info,mysql-enum,http-vhosts ${TARGET}
