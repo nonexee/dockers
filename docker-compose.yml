@@ -1,6 +1,6 @@
 version: "3"
 services:
- bingip2host:
+  bingip2host:
     image: myr3p0/bing-ip2host
     command: -q -o /tmp/bing-output.txt ${TARGET}
     volumes:
