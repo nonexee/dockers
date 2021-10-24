@@ -1,5 +1,10 @@
 version: "3"
 services:
+  assetfinder:
+    image: myr3p0/assetfinder
+    command: ${TARGET}
+    volumes:
+      - ./:/tmp/
   bingip2host:
     image: myr3p0/bing-ip2host
     command: -q -o /tmp/bing-output.txt ${TARGET}
