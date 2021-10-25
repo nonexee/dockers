@@ -1,5 +1,10 @@
 version: "3"
 services:
+  dnscan:
+    image: myr3p0/dnscan
+    command: -t 100 -L /dnscan/resolvers.txt -d ${TARGET}
+    volumes:
+      - ./:/tmp/
   assetfinder:
     image: myr3p0/assetfinder
     command: ${TARGET}
