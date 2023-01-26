@@ -68,7 +68,7 @@ services:
       - ./:/tmp/
   shuffledns-resolve:
     image: myr3p0/shuffledns
-    command: -r /resolvers.txt -list /tmp/subdomain-output.txt -silent -o /tmp/resolved-subdomain-output.txt
+    command: -d ${TARGET} -r /resolvers.txt -list /tmp/subdomain-output.txt -silent -o /tmp/resolved-subdomain-output.txt
     volumes:
       - ./:/tmp/
   httpx:
