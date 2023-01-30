@@ -66,9 +66,9 @@ services:
     command: -t /tmp/subdomain-output.txt -c 100 -s
     volumes:
       - ./:/tmp/
-  shuffledns-resolve:
-    image: myr3p0/shuffledns
-    command: -d ${TARGET} -r /tmp/resolvers.txt -list /tmp/subdomain-output.txt -silent -o /tmp/resolved-subdomain-output.txt
+  puredns-resolve:
+    image: myr3p0/puredns
+    command: resolve subdomain-output.txt --skip-sanitize -q -w /tmp/resolved-subdomain-output.txt -r /tmp/resolvers.txt
     volumes:
       - ./:/tmp/
   httpx:
