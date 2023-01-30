@@ -10,7 +10,7 @@ services:
       - ./:/tmp/
   dnscan:
     image: myr3p0/dnscan
-    command: -t 100 -L /dnscan/resolvers.txt -d ${TARGET}
+    command: -t 100 -L /tmp/resolvers.txt -d ${TARGET}
     volumes:
       - ./:/tmp/
   assetfinder:
@@ -25,7 +25,7 @@ services:
       - ./:/tmp/
   whatweb:
     image: myr3p0/whatweb
-    command: -i /tmp/bing-output.txt -a 1 --no-errors
+    command: -i /tmp/httpx-output.txt -a 1 --no-errors
     volumes:
       - ./:/tmp/
   nmap:
@@ -33,7 +33,7 @@ services:
     command: -sV --script http-security-headers,vulners,smb-enum-shares,smb-enum-users,smtp-enum-users,whois-domain,mysql-info,mysql-enum,http-vhosts ${TARGET}
   shuffledns:
     image: myr3p0/shuffledns
-    command: -r /resolvers.txt -w /all.txt --silent -o /tmp/shuffledns-output.txt -d ${TARGET}
+    command: -r /tmp/resolvers.txt -w /all.txt --silent -o /tmp/shuffledns-output.txt -d ${TARGET}
     volumes:
       - ./:/tmp/
   subfinder:
@@ -48,7 +48,7 @@ services:
       - ./:/tmp/
   puredns:
     image: myr3p0/puredns
-    command: bruteforce /all.txt --resolvers /resolvers.txt ${TARGET} -q -w /tmp/puredns-output.txt
+    command: bruteforce /all.txt --resolvers /tmp/resolvers.txt ${TARGET} -q -w /tmp/puredns-output.txt
     volumes:
       - ./:/tmp/
   findomain:
@@ -73,7 +73,7 @@ services:
       - ./:/tmp/
   httpx:
     image: myr3p0/httpx
-    command: -l /tmp/resolved-subdomain-output.txt -o /tmp/httpx-output.txt --silent
+    command: -l /tmp/unique-host-resolved-subdomain-output.txt -o /tmp/httpx-output.txt --silent
     volumes:
       - ./:/tmp/
   httpx-details:
