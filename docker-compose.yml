@@ -68,7 +68,7 @@ services:
       - ./:/tmp/
   puredns-resolve:
     image: myr3p0/puredns
-    command: resolve subdomain-output.txt --skip-sanitize -q -w /tmp/resolved-subdomain-output.txt -r /tmp/resolvers.txt
+    command: resolve /tmp/subdomain-output.txt --skip-sanitize -q -w /tmp/resolved-subdomain-output.txt -r /tmp/resolvers.txt
     volumes:
       - ./:/tmp/
   httpx:
