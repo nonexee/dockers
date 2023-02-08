@@ -10,7 +10,7 @@ services:
       - ./:/tmp/
   dnscan:
     image: myr3p0/dnscan
-    command: -t 100 -L /tmp/resolvers.txt -d ${TARGET}
+    command: -t 100 -L /dnscan/resolvers.txt -d ${TARGET}
     volumes:
       - ./:/tmp/
   assetfinder:
@@ -25,7 +25,7 @@ services:
       - ./:/tmp/
   whatweb:
     image: myr3p0/whatweb
-    command: -i /tmp/httpx-output.txt -a 1 --no-errors
+    command: -i /tmp/bing-output.txt -a 1 --no-errors
     volumes:
       - ./:/tmp/
   nmap:
@@ -33,7 +33,7 @@ services:
     command: -sV --script http-security-headers,vulners,smb-enum-shares,smb-enum-users,smtp-enum-users,whois-domain,mysql-info,mysql-enum,http-vhosts ${TARGET}
   shuffledns:
     image: myr3p0/shuffledns
-    command: -r /tmp/resolvers.txt -w /all.txt --silent -o /tmp/shuffledns-output.txt -d ${TARGET}
+    command: -r /resolvers.txt -w /all.txt --silent -o /tmp/shuffledns-output.txt -d ${TARGET}
     volumes:
       - ./:/tmp/
   subfinder:
@@ -48,7 +48,7 @@ services:
       - ./:/tmp/
   puredns:
     image: myr3p0/puredns
-    command: bruteforce /all.txt --resolvers /tmp/resolvers.txt ${TARGET} -q -w /tmp/puredns-output.txt
+    command: bruteforce /all.txt --resolvers /resolvers.txt ${TARGET} -q -w /tmp/puredns-output.txt
     volumes:
       - ./:/tmp/
   findomain:
@@ -92,26 +92,26 @@ services:
       - ./:/tmp/
   nuclei-info:
     image: myr3p0/nuclei
-    command: -l /tmp/httpx-output.txt -silent -no-interactsh -rl 1000 -bs 200 -c 100 -duc -nts -t /tmp/nuclei-templates/ -severity info -o /tmp/nuclei[info]-output.txt
+    command: -l /tmp/httpx-output.txt -silent -no-interactsh -rl 1000 -bs 200 -c 100 -duc -t /tmp/nuclei-templates/ -severity info -o /tmp/nuclei[info]-output.txt
     volumes:
       - ./:/tmp/
   nuclei-low:
     image: myr3p0/nuclei
-    command: -l /tmp/httpx-output.txt -silent -no-interactsh -rl 1000 -bs 200 -c 100 -duc -nts -t /tmp/nuclei-templates/ -severity low -o /tmp/nuclei[low]-output.txt
+    command: -l /tmp/httpx-output.txt -silent -no-interactsh -rl 1000 -bs 200 -c 100 -duc -t /tmp/nuclei-templates/ -severity low -o /tmp/nuclei[low]-output.txt
     volumes:
       - ./:/tmp/
   nuclei-medium:
     image: myr3p0/nuclei
-    command: -l /tmp/httpx-output.txt -silent -no-interactsh -rl 1000 -bs 200 -c 100 -duc -nts -t /tmp/nuclei-templates/ -severity medium -o /tmp/nuclei[medium]-output.txt
+    command: -l /tmp/httpx-output.txt -silent -no-interactsh -rl 1000 -bs 200 -c 100 -duc -t /tmp/nuclei-templates/ -severity medium -o /tmp/nuclei[medium]-output.txt
     volumes:
       - ./:/tmp/
   nuclei-high:
     image: myr3p0/nuclei
-    command: -l /tmp/httpx-output.txt -silent -no-interactsh -rl 1000 -bs 200 -c 100 -duc -nts -t /tmp/nuclei-templates/ -severity high -o /tmp/nuclei[high]-output.txt
+    command: -l /tmp/httpx-output.txt -silent -no-interactsh -rl 1000 -bs 200 -c 100 -duc -t /tmp/nuclei-templates/ -severity high -o /tmp/nuclei[high]-output.txt
     volumes:
       - ./:/tmp/
   nuclei-critical:
     image: myr3p0/nuclei
-    command: -l /tmp/httpx-output.txt -silent -no-interactsh -rl 1000 -bs 200 -c 100 -duc -nts -t /tmp/nuclei-templates/ -severity critical -o /tmp/nuclei[critical]-output.txt
+    command: -l /tmp/httpx-output.txt -silent -no-interactsh -rl 1000 -bs 200 -c 100 -duc -t /tmp/nuclei-templates/ -severity critical -o /tmp/nuclei[critical]-output.txt
     volumes:
       - ./:/tmp/
