@@ -1,8 +1,9 @@
 version: "3"
 services:
+  cloudfish:
+    image: myr3p0/cloudfish
   cookiemonster:
     image: myr3p0/cookiemonster
-    command: -cookie ${COOKIE}
   sublist3r:
     image: myr3p0/sublist3r
     command: -t 50 -d ${TARGET} -o /tmp/sublist3r-output.txt
