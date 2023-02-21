@@ -1,8 +1,8 @@
 FROM golang:alpine as build
 RUN apk --no-cache add git wget
 ENV GO111MODULE on
-RUN wget https://raw.githubusercontent.com/janmasarik/resolvers/master/resolvers.txt -O /resolvers.txt \
-&& wget https://raw.githubusercontent.com/danielmiessler/SecLists/master/Discovery/DNS/subdomains-top1million-110000.txt -O /all.txt \
+RUN wget https://raw.githubusercontent.com/trickest/resolvers/main/resolvers-trusted.txt -O /resolvers.txt \
+&& wget https://gist.githubusercontent.com/jhaddix/f64c97d0863a78454e44c2f7119c2a6a/raw/96f4e51d96b2203f19f6381c8c545b278eaa0837/all.txt -O /all.txt \
 && go install github.com/d3mondev/puredns/v2@latest \
 && apk del git wget
 
